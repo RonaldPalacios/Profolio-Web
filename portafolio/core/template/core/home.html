@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block image-header %} home {% endblock %}
+
+{% block title-header %}
+<div>
+    <h1 class="display-4 fw-bold">Ronald Palacios</h1>
+</div>
+<div>
+    <h3 class="fs-2">Web Development</h3>
+</div>
+{% endblock %}
+
+{% block content %}
+<h1 class="fw-lighter fst-italic px-5">"The pessimist sees difficulties at every opportunity. The optimist sees
+    opportunity in every difficulty.” —Winston Churchill. </h1>
+
+<div class="row d-flex pt-5">
+    <div class="col-12">
+        <div class="skills__container">
+            <div class="card" style="width: 18rem; margin: auto;">
+                <img src="../../static/core/img/card1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">Learn more</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem; margin: auto;">
+                <img src="../../static/core/img/card2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">Learn more</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem; margin: auto;">
+                <img src="../../static/core/img/card3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
