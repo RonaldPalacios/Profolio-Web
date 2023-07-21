@@ -4,46 +4,68 @@
 
 {% block image-header %} contact {% endblock %}
 
-{% block title-header %} 
+{% block title-header %}
 <div>
-    <h1 class="display-4 fw-bold">Contacto</h1>
+  <h1 class="display-4 fw-bold">Contact</h1>
 </div>
 <div>
-    <h3 class="fs-2">Asesoría personal</h3>
+  <h3 class="fs-2">Asesoría personal</h3>
 </div>
 {% endblock %}
 
-{% block content %} 
+{% block content %}
 
-<form action="{% url 'contact' %}" method="post">
+<!-- {% url 'contact' %}--> 
 <div class="row">
+  <form action="" method="POST">
+    {% csrf_token %}
+
     <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="mb-3">
-            <div class="row">
-                <div class="col">
-                  <input type="text" class="form-control" placeholder="First name" name="first_name" aria-label="First name">
-                </div>
-                <div class="col">
-                  <input type="text" class="form-control" placeholder="Last name" name="last_name" aria-label="Last name">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <input type="text" class="form-control" style="margin-top: 15px;" name="contry" placeholder="Contry" aria-label="Contry">
-                </div>
-                <div class="col">
-                  <input type="text" class="form-control" style="margin-top: 15px;" name="city" placeholder="City" aria-label="City">
-                </div>
-              </div>
-            <label for="exampleFormControlInput1" class="form-label"></label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com">
+      <div class="mb-3">
+        <div class="row">
+          <div class="col">
+            {{ form.first_name }}
+            {{ form.first_name.errors }}
           </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion" placeholder="Descripcion"></textarea>
-            <a href="#" class="btn btn-primary" style=" margin-top: 3px; ">Send</a>
+          <div class="col">
+            {{ form.last_name }}
+            {{ form.last_name.errors }}
           </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            {{ form.contry }}
+            {{ form.contry.errors }}
+
+          </div>
+          <div class="col">
+            {{ form.city }}
+            {{ form.city.errors }}
+          </div>
+        </div>
+        <label for="exampleFormControlInput1" class="form-label"></label>
+        {{ form.email }}
+        {{ form.email.errors }}
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"></label>
+        {{ form.descripcion }}
+        {{ form.descripcion.errors }}
+
+        <input class="btn btn-primary" type="submit" style=" margin-top: 3px; " value="Send" {% if 'ok' in request.GET %} disabled {% endif %} >
+      </div>
     </div>
+  </form>
+    {% if 'ok' in request.GET %}
+       <div class="alert alert-success mt-5" role="alert">
+        <strong>The message was sent successfully</strong>
+       </div>
+    {% endif %}
+    {% if 'error' in request.GET %}
+       <div class="alert alert-danger mt-5" role="alert">
+        <strong>Error sending message</strong>
+       </div>
+    {% endif %}
 </div>
-</form>
+
 {% endblock %}

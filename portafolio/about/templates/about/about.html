@@ -22,13 +22,16 @@
         <img class="img-fluid img-thumbnail img-circle img-perfil " src={% static 'core/img/foto-perfil.png' %} alt="">
     </div>
     <div class="col-6">
-        <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit temporibus distinctio expedita enim, libero pariatur aliquam ullam molestiae debitis eos nobis at ipsa eveniet cum officiis fuga incidunt eius ex?</h4>
+        <h4>I'm Ronald Palacios. I am a Full Stack Web Developer and Cisco platforms 
+            with extensive knowledge in back-end, developed through my own projects. 
+            I seek to develop my career, to achieve the needs and preferences of clients.
+        </h4>
     </div>
 </div> 
 
 <div class="row d-flex pt-5">
     <div class="col-12">
-        <h2 class="fw-bold">Formación Académica</h2>
+        <h2 class="fw-bold">Academic training</h2>
         {% for course in courses %}
 
         <h3>{{ course.title }}</h3>
@@ -40,14 +43,14 @@
 
         <br>
 
-        <h2 class="fw-bold">Conocimientos</h2>
+        <h2 class="fw-bold">Knowledge</h2>
         <section class="skills" id="skills">
             <div class="skills__container" id="skills">
 
                 {% for skill in skills %}
                 <div class="card__skills">
                     <div class="skill__thumbnail">
-                        <img class="skill__logo" src={{ skill.image.url }} alt="html5">
+                        <img class="skill__logo" src={{ skill.image.url }} >
                     </div>
 
                     <div class="skill__texto">
